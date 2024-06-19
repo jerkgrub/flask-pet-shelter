@@ -76,7 +76,7 @@
     <div class="container">
         <header>
             <h1>Pet Shelter</h1>
-            <a href="#" class="add-pet">add a pet to the shelter</a>
+            <a href="/pet/new" class="add-pet">add a pet to the shelter</a>
         </header>
         <table class="pet-table">
             <thead>
@@ -92,11 +92,11 @@
                     <td>{{ pet.petname }}</td>
                     <td>{{ pet.pettype }}</td>
                     <td class="actions">
-                        <a href="/pet/{{ pet.id }}/details">details</a> |
+                        <a href="/profile/{{ pet.id }}">details</a> |
                         <a href="/pet/{{ pet.id }}/edit">edit</a>
                     </td>
                 </tr>
-                {% endfor %}
+                {% endfor %}    
             </tbody>
         </table>
     </div>
