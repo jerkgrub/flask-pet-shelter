@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shelter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .add-pet {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .add-pet:hover {
+            text-decoration: underline;
+        }
+
+        .pet-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .pet-table th, .pet-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .pet-table th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .pet-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .pet-table a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .pet-table a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pet Shelter</h1>
+            <a href="#" class="add-pet">add a pet to the shelter</a>
+        </header>
+        <table class="pet-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pet in allpets %}
+                <tr>
+                    <td>{{ pet.petname }}</td>
+                    <td>{{ pet.pettype }}</td>
+                    <td class="actions">
+                        <a href="/pet/{{ pet.id }}/details">details</a> |
+                        <a href="/pet/{{ pet.id }}/edit">edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
